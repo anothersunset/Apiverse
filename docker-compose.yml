@@ -44,3 +44,25 @@ services:
     profiles:
       - shortdrama
       - all
+
+  # ==================== 短剧视频生成 Pro ====================
+  shortdrama-pro:
+    build:
+      context: ./shortdrama-pro
+      dockerfile: Dockerfile
+    container_name: shortdrama-pro
+    volumes:
+      - ./shortdrama-pro/output:/app/output
+      - ./shortdrama-pro/assets:/app/assets
+      - ./shortdrama-pro/data:/app/data
+    environment:
+      - STORY_IDEA=${STORY_IDEA:-一个关于友情的温暖故事}
+      - MODE=${MODE:-local}
+      - DURATION=${DURATION:-30}
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - http_proxy=${http_proxy:-}
+      - https_proxy=${https_proxy:-}
+    profiles:
+      - shortdrama
+      - all
