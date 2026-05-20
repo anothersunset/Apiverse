@@ -1,0 +1,38 @@
+[
+  {
+    "duration": 6,
+    "scene": "深夜食堂内",
+    "character": "老周",
+    "camera": "中景",
+    "action": "老周擦拭台面，看墙上时钟已过凌晨",
+    "dialogue": "这个点还来的，都是有故事的人。",
+    "image_prompt": "late night diner, chef wiping counter, cozy warm light",
+    "video_prompt": "slow pan, warm interior, quiet atmosphere",
+    "shot_id": "s01",
+    "status": "pending"
+  },
+  {
+    "duration": 6,
+    "scene": "食堂门口",
+    "character": "小晚",
+    "camera": "中景",
+    "action": "小晚推门进来，疲惫地坐下",
+    "dialogue": "老板，一碗阳春面，少放盐。",
+    "image_prompt": "woman entering late night diner, tired face, business suit",
+    "video_prompt": "door opens, woman walks in, tired expression",
+    "shot_id": "s02",
+    "status": "pending"
+  },
+  {
+    "duration": 8,
+    "scene": "厨房",
+    "character": "老周",
+    "camera": "特写",
+    "action": "老周默默多加了一个荷包蛋",
+    "dialogue": "（旁白）加班的姑娘，该多吃点。",
+    "image_prompt": "chef cooking noodles, adding extra egg, caring hands",
+    "video_prompt": "close up cooking, steam rising, egg being added",
+    "shot_id": "s03",
+    "status": "pending"
+  }
+]

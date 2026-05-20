@@ -1,0 +1,20 @@
+[
+  {
+    "id": "chef",
+    "name": "老周",
+    "role": "食堂老板",
+    "visual_prompt": "白发围裙，手上有烫伤疤痕",
+    "negative_prompt": "extra fingers, distorted face, low quality, blurry",
+    "voice": "zh-CN-YunxiNeural",
+    "reference_image": "assets/characters/chef.png"
+  },
+  {
+    "id": "girl",
+    "name": "小晚",
+    "role": "加班白领",
+    "visual_prompt": "疲惫妆容，职业套装",
+    "negative_prompt": "extra fingers, distorted face, low quality, blurry",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "reference_image": "assets/characters/girl.png"
+  }
+]

@@ -31,7 +31,7 @@ class ShortDramaPipeline:
             )
             rendered_shots.append(rendered)
 
-        subtitles = self.subtitle_engine.generate(rendered_shots)
+        subtitles = self.subtitle_engine.generate(shots)
         final_video = self.compose_engine.compose(
             story=story,
             shots=rendered_shots,
