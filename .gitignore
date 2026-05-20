@@ -1,0 +1,31 @@
+node_modules/
+.next/
+.env
+*.log
+.DS_Store
+dist/
+build/
+coverage/
+.vercel
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Short Drama
+shortdrama-demo/assets/frames/*
+shortdrama-demo/assets/audio/*
+shortdrama-demo/output/*
+shortdrama-pro/assets/characters/*
+shortdrama-pro/assets/frames/*
+shortdrama-pro/assets/videos/*
+shortdrama-pro/assets/voices/*
+shortdrama-pro/assets/subtitles/*
+shortdrama-pro/assets/bgm/*
+shortdrama-pro/output/*
