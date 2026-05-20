@@ -114,9 +114,23 @@ def create_frame(story_title: str, shot: dict, idx: int, total: int) -> Path:
     img.save(frame_path)
     return frame_path
 
+def create_silent_audio(output_path: Path, duration: float = 3.0):
+    """离线降级：当 edge-tts 不可用时，生成静默音频占位"""
+    import numpy as np
+    from moviepy.audio.AudioClip import AudioArrayClip
+    sample_rate = 44100
+    samples = int(sample_rate * duration)
+    silent = np.zeros((1, samples), dtype=np.float64)
+    clip = AudioArrayClip(silent.T, fps=sample_rate)
+    clip.write_audiofile(str(output_path), logger=None)
+
 async def create_voice(text: str, voice: str, output_path: Path):
-    communicate = edge_tts.Communicate(text=text, voice=voice, rate="+0%", volume="+0%")
-    await communicate.save(str(output_path))
+    try:
+        communicate = edge_tts.Communicate(text=text, voice=voice, rate="+0%", volume="+0%")
+        await communicate.save(str(output_path))
+    except Exception as e:
+        print(f"  [离线模式] edge-tts 不可用，使用静默音频: {output_path.name} ({e})")
+        create_silent_audio(output_path, duration=3.0)
 
 async def create_all_voices(story: dict):
     character_voice = {c["name"]: c.get("voice", "zh-CN-XiaoxiaoNeural") for c in story["characters"]}

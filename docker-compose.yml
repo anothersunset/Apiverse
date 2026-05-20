@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # ==================== APIVerse 后端 ====================
+  apiverse-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: apiverse-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  # ==================== APIVerse 前端 ====================
+  apiverse-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: apiverse-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    depends_on:
+      - apiverse-backend
+    restart: unless-stopped
+
+  # ==================== 短剧视频生成 Demo ====================
+  shortdrama-demo:
+    build:
+      context: ./shortdrama-demo
+      dockerfile: Dockerfile
+    container_name: shortdrama-demo
+    volumes:
+      - ./shortdrama-demo/output:/app/output
+      - ./shortdrama-demo/assets:/app/assets
+    environment:
+      - HTTP_PROXY=${HTTP_PROXY:-}
+      - HTTPS_PROXY=${HTTPS_PROXY:-}
+      - http_proxy=${http_proxy:-}
+      - https_proxy=${https_proxy:-}
+    profiles:
+      - shortdrama
+      - all
