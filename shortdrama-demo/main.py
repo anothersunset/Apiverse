@@ -157,7 +157,6 @@ def build_video(story: dict):
             ImageClip(str(frame_path))
             .set_duration(duration)
             .set_audio(audio)
-            .resize(lambda t: 1 + 0.018 * t)
             .set_position("center")
         )
         clips.append(clip)
